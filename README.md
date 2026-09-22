@@ -11,7 +11,7 @@ Static website built with plain HTML, CSS and JavaScript. No framework and no bu
 | `faculty.html` | Faculty / departments |
 | `contact.html` | Contact + enquiry form |
 | `thank-you.html` | Shown after the enquiry form is sent |
-| `404.html` | "Page not found" page (Netlify uses it automatically) |
+| `404.html` | "Page not found" page (GitHub Pages and Netlify use it automatically) |
 
 ## Folders
 
@@ -36,11 +36,11 @@ Static website built with plain HTML, CSS and JavaScript. No framework and no bu
 
 ## SEO: after you publish
 
-The site address is set to `https://amfahhz-academy.netlify.app`. It is used in the canonical links,
+The site address is set to `https://amfahhzacademy.github.io` (GitHub Pages). It is used in the canonical links,
 social-share tags, structured data, `sitemap.xml` and `robots.txt`.
 
-1. If your Netlify address is different (or you add your own domain later), search all files for
-   `amfahhz-academy.netlify.app` and replace it with your real address.
+1. When the site moves to its final address (Netlify or your own domain), search all files for
+   `amfahhzacademy.github.io` and replace it with the new address.
 2. Add the site to Google Search Console (https://search.google.com/search-console), then submit
    `https://YOUR-ADDRESS/sitemap.xml` under **Sitemaps**.
 3. Test the share preview at https://www.opengraph.xyz and the structured data at
@@ -51,7 +51,14 @@ on WhatsApp, Facebook, etc.), `apple-touch-icon.png` (iPhone home-screen icon) a
 
 ## Contact form
 
-The form on `contact.html` uses **Netlify Forms**, so it works with no server:
+**Current setup (GitHub Pages):** the form sends enquiries to a Google Apps Script in the client's Google
+account. Each enquiry is added to the "AMFAHHZ Website Enquiries" Google Sheet (tab "Enquiries") and emailed to
+amfahhzacademy@gmail.com. The script is in `google-apps-script/Code.gs`, and its web app URL is in
+`data-endpoint="..."` on the form in `contact.html`. If you edit the script, redeploy with
+Deploy > Manage deployments > Edit > Version: New version so the URL stays the same.
+
+**Netlify alternative:** if the site is hosted on Netlify, you can empty `data-endpoint=""` and the form
+falls back to **Netlify Forms** instead:
 
 1. After deploying, open your site in Netlify → **Forms** → enable form detection, then redeploy.
 2. Submissions appear under **Forms → enquiry**.

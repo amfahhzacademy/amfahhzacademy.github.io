@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amfahhz-academy.netlify.app/sitemap.xml
+Sitemap: https://amfahhzacademy.github.io/sitemap.xml
