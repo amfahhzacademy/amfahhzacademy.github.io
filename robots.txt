@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://amfahhzacademy.github.io/sitemap.xml
+Sitemap: https://amfahhzacademy.com/sitemap.xml

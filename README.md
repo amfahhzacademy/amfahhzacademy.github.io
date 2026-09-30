@@ -36,13 +36,13 @@ Static website built with plain HTML, CSS and JavaScript. No framework and no bu
 
 ## SEO: after you publish
 
-The site address is set to `https://amfahhzacademy.github.io` (GitHub Pages). It is used in the canonical links,
-social-share tags, structured data, `sitemap.xml` and `robots.txt`.
+The site address is `https://amfahhzacademy.com` (GitHub Pages with a custom domain from Hostinger). It is used in
+the canonical links, social-share tags, structured data, `sitemap.xml` and `robots.txt`. The `CNAME` file in the root
+holds the domain, so don't delete it.
 
-1. When the site moves to its final address (Netlify or your own domain), search all files for
-   `amfahhzacademy.github.io` and replace it with the new address.
+1. If the site ever moves to another address, search all files for `https://amfahhzacademy.com` and replace it.
 2. Add the site to Google Search Console (https://search.google.com/search-console), then submit
-   `https://YOUR-ADDRESS/sitemap.xml` under **Sitemaps**.
+   `https://amfahhzacademy.com/sitemap.xml` under **Sitemaps**.
 3. Test the share preview at https://www.opengraph.xyz and the structured data at
    https://search.google.com/test/rich-results.
 
