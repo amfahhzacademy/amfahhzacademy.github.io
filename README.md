@@ -69,7 +69,7 @@ falls back to **Netlify Forms** instead:
 
 - WhatsApp / Phone: +92 311 1418064
 - Email: amfahhzacademy@gmail.com
-- Location: Remote (online classes worldwide)
+- Location: Islamabad & Rawalpindi (physical and home tuition), online tuition where required. No centre address yet.
 
 To change the WhatsApp number, search all files for `923111418064` and replace it.
 

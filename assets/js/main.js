@@ -111,6 +111,47 @@
     });
   }
 
+  // Subjects page: filter the lists as you type. subjects.html?q=Physics (or ?q=Accounting,Business)
+  // opens it pre-filtered. Without JavaScript every subject is simply shown.
+  var search = document.getElementById('subject-search');
+  if (search) {
+    var finderStatus = document.querySelector('.finder-status');
+    var norm = function (s) { return s.toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, ' ').trim(); };
+    var subjects = Array.prototype.map.call(document.querySelectorAll('.subject-list li'), function (li) {
+      return { el: li, text: norm(li.textContent) };
+    });
+    var filterSubjects = function () {
+      var parts = search.value.split(',').map(function (t) { return t.trim(); }).filter(Boolean);
+      var terms = parts.map(norm).filter(Boolean);
+      var label = '"' + parts.join(', ') + '"';
+      var shown = 0;
+      subjects.forEach(function (s) {
+        var match = !terms.length || terms.some(function (t) { return s.text.indexOf(t) !== -1; });
+        s.el.hidden = !match;
+        if (match) shown++;
+      });
+      document.querySelectorAll('.subject-group, [data-board]').forEach(function (box) {
+        box.hidden = !box.querySelector('.subject-list li:not([hidden])');
+      });
+      finderStatus.textContent = '';
+      if (!terms.length) return;
+      if (shown) {
+        finderStatus.textContent = shown + (shown === 1 ? ' subject matches' : ' subjects match') + ' ' + label + '.';
+      } else {
+        finderStatus.appendChild(document.createTextNode('No subjects match ' + label + '. '));
+        var ask = document.createElement('a');
+        ask.href = 'https://wa.me/923111418064?text=' + encodeURIComponent("Hi AMFAHHZ Cambridge Academy! I'm looking for a tutor for: " + search.value.trim());
+        ask.target = '_blank';
+        ask.rel = 'noopener';
+        ask.textContent = 'Ask us on WhatsApp';
+        finderStatus.appendChild(ask);
+      }
+    };
+    search.addEventListener('input', filterSubjects);
+    var q = new URLSearchParams(window.location.search).get('q');
+    if (q) { search.value = q; filterSubjects(); }
+  }
+
   // Footer year
   document.querySelectorAll('[data-year]').forEach(function (el) {
     el.textContent = new Date().getFullYear();

@@ -19,8 +19,9 @@
 
 var NOTIFY_EMAIL = 'amfahhzacademy@gmail.com';
 var SHEET_NAME = 'Enquiries';
-var FIELDS = ['name', 'phone', 'email', 'level', 'subject', 'format', 'message', 'page'];
-var HEADERS = ['Received', 'Name', 'WhatsApp / Phone', 'Email', 'Level', 'Subject(s)', 'Class type', 'Message', 'Sent from page'];
+// 'area' was added last so rows written before it keep their columns
+var FIELDS = ['name', 'phone', 'email', 'level', 'subject', 'format', 'message', 'page', 'area'];
+var HEADERS = ['Received', 'Name', 'WhatsApp / Phone', 'Email', 'Level', 'Subject(s)', 'Tuition type', 'Message', 'Sent from page', 'Area / sector'];
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -79,7 +80,8 @@ function escape_(value) {
 function sendEmail_(p) {
   var rows = [
     ['Name', p.name], ['WhatsApp / Phone', p.phone], ['Email', p.email],
-    ['Level', p.level], ['Subject(s)', p.subject], ['Class type', p.format], ['Message', p.message]
+    ['Level', p.level], ['Subject(s)', p.subject], ['Tuition type', p.format], ['Area / sector', p.area],
+    ['Message', p.message]
   ];
   var html = '<h2 style="font-family:Georgia,serif;color:#3a0f1d">New website enquiry</h2>' +
     '<table cellpadding="8" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">' +

@@ -1,7 +1,7 @@
 {
   "name": "AMFAHHZ Cambridge Academy",
   "short_name": "AMFAHHZ",
-  "description": "Live one-on-one online tutoring for O Level, A Level, IGCSE and more.",
+  "description": "Home and physical tuition in Islamabad and Rawalpindi for O Level, A Level, IGCSE and more.",
   "start_url": "./",
   "scope": "./",
   "display": "minimal-ui",
